@@ -97,5 +97,9 @@ public class Main extends Application {
     alert.getDialogPane().setContent(messageLabel);
     alert.showAndWait();
   }
+
+  public static void main(String[] args) {
+    launch(args);
+  }
 }
 

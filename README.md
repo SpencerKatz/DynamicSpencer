@@ -3,7 +3,10 @@
 * This is my crack at the Dynamic Backend Coding Interview. I use the Web3j library in my implementation.
 
 ## Running
-* Run the Program from the Main class.
+* Clone the project into your IDE of choice. 
+* Navigate to the class titled main and run the application.
+  * That's It!
+![Screenshot 2024-04-12 at 4.30.33 PM.png](Screenshot%202024-04-12%20at%204.30.33%20PM.png)
 
 ## Features
 - **Account Creation**: Users can log in or sign up an account.
