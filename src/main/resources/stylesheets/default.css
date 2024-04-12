@@ -1,0 +1,97 @@
+.root {
+  -fx-font-size: 12pt;
+  -fx-font-family: "Arial, sans-serif";
+  -fx-text-fill: #000000; /* White */
+  -fx-base: #001A57; /* Duke Blue */
+  -fx-background: #F3F3F3; /* Light Gray */
+}
+
+.button {
+  -fx-background-color: #001A57; /* Duke Blue */
+  -fx-text-fill: #FFFFFF; /* White */
+  -fx-border-radius: 20;
+  -fx-background-radius: 20;
+  -fx-padding: 9;
+  -fx-font-size: 9pt;
+  -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 0 );
+}
+
+.button:hover {
+  -fx-background-color: #004080; /* Darker Duke Blue */
+}
+
+.combo-box-base {
+  -fx-text-base-color: #FFFFFF; /* White */
+  -fx-background-color: #001A57; /* Duke Blue */
+  -fx-border-radius: 20;
+  -fx-background-radius: 20;
+  -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 0 );
+}
+
+.combo-box-base:hover {
+  -fx-background-color: #004080; /* Darker Duke Blue */
+}
+
+.label {
+  -fx-font-size: 9pt;
+  -fx-font-family: "Arial, sans-serif";
+  -fx-text-fill: #001A57; /* Duke Blue */
+  -fx-opacity: 0.8;
+  -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0 );
+}
+
+.text-field {
+  -fx-font-size: 14pt;
+  -fx-font-family: "Arial, sans-serif";
+  -fx-background-color: #OO4080; /* White */
+  -fx-border-color: #001A57; /* Duke Blue */
+  -fx-border-radius: 5;
+  -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 0 );
+}
+
+.toggle-button {
+  -fx-background-color: #001A57; /* Duke Blue */
+  -fx-text-fill: #FFFFFF; /* White */
+  -fx-border-radius: 20;
+  -fx-background-radius: 20;
+  -fx-padding: 8;
+}
+
+.toggle-button:selected {
+  -fx-background-color: #004080; /* Darker Duke Blue */
+}
+
+.slider {
+  -fx-background-color: #001A57; /* Duke Blue */
+}
+
+.slider .track {
+  -fx-background-color: #004080; /* Darker Duke Blue */
+}
+
+.slider .thumb {
+  -fx-background-color: #FFFFFF; /* White */
+  -fx-border-color: #001A57; /* Duke Blue */
+}
+
+.checkbox {
+  -fx-text-fill: #001A57; /* Duke Blue */
+}
+
+.checkbox:selected {
+  -fx-border-color: #001A57; /* Duke Blue */
+  -fx-background-color: #001A57; /* Duke Blue */
+}
+
+.radio-button {
+  -fx-text-fill: #001A57; /* Duke Blue */
+}
+
+.radio-button:selected {
+  -fx-border-color: #001A57; /* Duke Blue */
+  -fx-background-color: #001A57; /* Duke Blue */
+}
+
+.progress-bar {
+  -fx-accent: #001A57; /* Duke Blue */
+}
