@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.io.File;
@@ -58,7 +59,7 @@ public class User {
       throws InvalidAlgorithmParameterException, CipherException, NoSuchAlgorithmException, IOException, NoSuchProviderException {
     String walletName = WalletUtils.generateNewWalletFile(walletPassword, new File(walletDirectory));
     Credentials newAccountCredentials = WalletUtils.loadCredentials(walletPassword, walletDirectory + "/" + walletName);
-    parser.addNewWallet(username, walletName, walletPassword);
+    parser.addNewWallet(username, walletName);
     newAccountCredentials.getEcKeyPair().getPrivateKey();
   }
 
@@ -105,9 +106,7 @@ public class User {
    * @return A list of wallet names as Strings.
    */
   public List<String> getWalletNames() {
-    return parser.getUserWallets(username).stream()
-        .map(Wallet::getName)
-        .collect(Collectors.toList());
+    return parser.getUserWallets(username);
   }
 
   /**

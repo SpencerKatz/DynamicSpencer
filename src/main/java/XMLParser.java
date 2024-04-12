@@ -15,7 +15,7 @@ public class XMLParser {
       System.getProperty("user.dir") + "/src/main/resources/users.xml";
 
   private final Map<String, String> userPasswords = new HashMap<>();
-  private final Map<String, List<Wallet>> userWallets = new HashMap<>();
+  private final Map<String, List<String>> userWallets = new HashMap<>();
 
   public XMLParser() {
     parseUsers();
@@ -56,12 +56,10 @@ public class XMLParser {
     userPasswords.put(username, password);
 
     NodeList walletNodes = userElement.getElementsByTagName("wallet");
-    List<Wallet> wallets = new ArrayList<>();
+    List<String> wallets = new ArrayList<>();
     for (int i = 0; i < walletNodes.getLength(); i++) {
       Element walletElement = (Element) walletNodes.item(i);
-      wallets.add(new Wallet(
-          getElementText(walletElement, "name"),
-          getElementText(walletElement, "password")));
+      wallets.add(getElementText(walletElement, "name"));
     }
     userWallets.put(username, wallets);
   }
@@ -70,11 +68,11 @@ public class XMLParser {
     return parent.getElementsByTagName(tagName).item(0).getTextContent();
   }
 
-  public List<Wallet> getUserWallets(String username) {
+  public List<String> getUserWallets(String username) {
     return userWallets.getOrDefault(username, new ArrayList<>());
   }
 
-  public void addNewWallet(String username, String walletName, String walletPassword) {
+  public void addNewWallet(String username, String walletName) {
     try {
       File xmlFile = new File(USER_FILE_PATH);
       Document doc = getDocument(xmlFile);
@@ -82,23 +80,21 @@ public class XMLParser {
       for (int i = 0; i < userList.getLength(); i++) {
         Element userElement = (Element) userList.item(i);
         if (username.equals(getElementText(userElement, "username"))) {
-          addWalletToUser(doc, userElement, walletName, walletPassword);
+          addWalletToUser(doc, userElement, walletName);
           break;
         }
       }
       saveDocument(doc, xmlFile);
-      updateWalletCache(username, new Wallet(walletName, walletPassword));
+      updateWalletCache(username, walletName);
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  private void addWalletToUser(Document doc, Element userElement, String walletName,
-      String walletPassword) {
+  private void addWalletToUser(Document doc, Element userElement, String walletName) {
     Element walletsElement = (Element) userElement.getElementsByTagName("wallets").item(0);
     Element walletElement = doc.createElement("wallet");
     appendElementWithText(doc, walletElement, "name", walletName);
-    appendElementWithText(doc, walletElement, "password", walletPassword);
     walletsElement.appendChild(walletElement);
   }
 
@@ -108,9 +104,9 @@ public class XMLParser {
     parent.appendChild(element);
   }
 
-  private void updateWalletCache(String username, Wallet wallet) {
-    List<Wallet> wallets = userWallets.getOrDefault(username, new ArrayList<>());
-    wallets.add(wallet);
+  private void updateWalletCache(String username, String walletName) {
+    List<String> wallets = userWallets.getOrDefault(username, new ArrayList<>());
+    wallets.add(walletName);
     userWallets.put(username, wallets);
   }
 
