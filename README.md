@@ -1,6 +1,8 @@
 # DynamicSpencer
 
 * This is my crack at the Dynamic Backend Coding Interview. I use the Web3j library in my implementation.
+
+## Running
 * Run the Program from the Main class.
 
 ## Features
