@@ -60,7 +60,8 @@ public class XMLParser {
     for (int i = 0; i < walletNodes.getLength(); i++) {
       Element walletElement = (Element) walletNodes.item(i);
       wallets.add(new Wallet(
-          getElementText(walletElement, "name")));
+          getElementText(walletElement, "name"),
+          getElementText(walletElement, "password")));
     }
     userWallets.put(username, wallets);
   }
@@ -86,7 +87,7 @@ public class XMLParser {
         }
       }
       saveDocument(doc, xmlFile);
-      updateWalletCache(username, new Wallet(walletName));
+      updateWalletCache(username, new Wallet(walletName, walletPassword));
     } catch (Exception e) {
       e.printStackTrace();
     }
