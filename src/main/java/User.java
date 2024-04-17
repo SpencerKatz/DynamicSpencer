@@ -58,9 +58,7 @@ public class User {
   public void createNewAccount(String walletPassword)
       throws InvalidAlgorithmParameterException, CipherException, NoSuchAlgorithmException, IOException, NoSuchProviderException {
     String walletName = WalletUtils.generateNewWalletFile(walletPassword, new File(walletDirectory));
-    Credentials newAccountCredentials = WalletUtils.loadCredentials(walletPassword, walletDirectory + "/" + walletName);
     parser.addNewWallet(username, walletName);
-    newAccountCredentials.getEcKeyPair().getPrivateKey();
   }
 
   /**
